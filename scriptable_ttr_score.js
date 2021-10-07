@@ -70,10 +70,6 @@ if (config.runsInWidget) {
 //calls getMyTtr function on amazon aws lambda function
 async function getMyTtr() {
   var login = new Object();
-  login.mail = "christian@schmidt-burgholzhausen.de";
-  login.pw  = "myt1scht3nn1s";
-  //login.mail = "kristina";
-  //login.pw  = "butterfly";
   console.log(args.widgetParameter)
   // add login credentials as arguments
   if(args.widgetParameter != null) {
@@ -81,7 +77,9 @@ async function getMyTtr() {
     login.mail=args.widgetParameter.split(",")[0];
     login.pw=args.widgetParameter.split(",")[1];
   }
- 
+ else{
+  console.log("keine Parameter")
+ }
   
   //lambda function URL
   let url = "https://st2en8hrtk.execute-api.eu-west-1.amazonaws.com/v1"
